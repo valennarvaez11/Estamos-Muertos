@@ -1,0 +1,373 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #050505;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+.header {
+    height: 75px;
+    background: #050505;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    border-bottom: 2px solid #1c1c1c;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    line-height: 20px;
+    letter-spacing: -1px;
+    transform: rotate(-2deg);
+}
+
+.logo span {
+    color: #e50914;
+}
+
+.menu {
+    display: flex;
+    gap: 35px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-style: italic;
+    transition: 0.3s;
+}
+
+.menu a:hover,
+.menu .activo {
+    color: #ff101d;
+}
+
+.menu .activo {
+    border-bottom: 3px solid #ff101d;
+    padding-bottom: 8px;
+}
+
+.iconos {
+    display: flex;
+    gap: 20px;
+    font-size: 30px;
+}
+
+.iconos span {
+    cursor: pointer;
+}
+
+/* =========================
+   PORTADA
+========================= */
+
+.portada {
+    min-height: 550px;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 75% 40%, rgba(130, 0, 0, 0.45), transparent 35%),
+        radial-gradient(circle at 20% 50%, rgba(100, 0, 0, 0.35), transparent 30%),
+        linear-gradient(90deg, #050505 5%, #170306 45%, #30050a 100%);
+}
+
+.portada::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 35%,
+            rgba(180, 0, 0, 0.35) 36%,
+            transparent 40%
+        );
+
+    pointer-events: none;
+}
+
+.contenido-portada {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    padding: 75px 0 70px 8%;
+}
+
+.frase {
+    font-size: 20px;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.frase-roja {
+    color: #ff101d;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.contenido-portada h1 {
+    margin-top: 15px;
+    font-size: clamp(65px, 8vw, 125px);
+    line-height: 0.78;
+    font-weight: 900;
+    letter-spacing: -6px;
+    transform: rotate(-2deg);
+    text-shadow: 5px 5px 0 #111;
+}
+
+.contenido-portada h1 span {
+    color: #e50914;
+    text-shadow:
+        4px 4px 0 #650006,
+        0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+.descripcion {
+    max-width: 520px;
+    margin-top: 35px;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.boton {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 15px 35px;
+    background: #e50914;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-style: italic;
+    border-radius: 3px;
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.35);
+    transition: 0.3s;
+}
+
+.boton:hover {
+    background: white;
+    color: #e50914;
+    transform: scale(1.05);
+}
+
+/* =========================
+   TARJETAS
+========================= */
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 8px 5%;
+    background: #030303;
+}
+
+.tarjeta {
+    min-height: 150px;
+    display: flex;
+    align-items: end;
+    padding: 22px;
+    text-decoration: none;
+    color: white;
+    border: 2px solid #700009;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(to top, #050505 0%, transparent 70%),
+        linear-gradient(135deg, #240307, #090909);
+    transition: 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-6px);
+    border-color: #ff101d;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.35);
+}
+
+.tarjeta h2 {
+    font-size: 24px;
+    font-style: italic;
+    position: relative;
+    z-index: 2;
+}
+
+.tarjeta h2 span {
+    color: #ff101d;
+    font-size: 35px;
+}
+
+/* Diferentes fondos */
+
+.personajes {
+    background:
+        linear-gradient(to top, #050505, transparent),
+        radial-gradient(circle at 50% 30%, #75000b, #080808 65%);
+}
+
+.episodios {
+    background:
+        linear-gradient(to top, #050505, transparent),
+        radial-gradient(circle at 50% 30%, #450008, #080808 65%);
+}
+
+.galeria {
+    background:
+        linear-gradient(to top, #050505, transparent),
+        radial-gradient(circle at 50% 30%, #72000a, #080808 65%);
+}
+
+.sobre {
+    background:
+        linear-gradient(to top, #050505, transparent),
+        radial-gradient(circle at 50% 30%, #400006, #080808 65%);
+}
+
+/* =========================
+   INFORMACIÓN
+========================= */
+
+.informacion {
+    min-height: 430px;
+    padding: 70px 7%;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 0.7fr;
+    align-items: center;
+    gap: 50px;
+    background:
+        radial-gradient(circle at 40% 50%, #260306, transparent 40%),
+        #050505;
+}
+
+.imagen-info {
+    height: 300px;
+    background:
+        linear-gradient(135deg, #450008, #111 50%, #260006);
+    border: 4px solid #1b1b1b;
+    transform: rotate(-3deg);
+    box-shadow: 10px 10px 0 #9b0009;
+}
+
+.texto-info h2 {
+    font-size: 45px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.texto-info h2 span {
+    color: #e50914;
+}
+
+.texto-info p {
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.pequeño {
+    padding: 12px 25px;
+}
+
+.frase-final {
+    font-size: 23px;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 1.3;
+}
+
+.frase-final span {
+    color: #e50914;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    min-height: 100px;
+    border-top: 2px solid #300006;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 7%;
+    background: #020202;
+}
+
+.redes {
+    font-size: 22px;
+    color: white;
+}
+
+.nombre-footer {
+    letter-spacing: 7px;
+    font-style: italic;
+}
+
+.advertencia {
+    font-size: 12px;
+    font-style: italic;
+    text-align: right;
+}
+
+.advertencia span {
+    color: #e50914;
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 900px) {
+
+    .menu {
+        display: none;
+    }
+
+    .contenido-portada {
+        width: 90%;
+        padding-left: 7%;
+    }
+
+    .tarjetas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .informacion {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .advertencia {
+        text-align: center;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .tarjetas {
+        grid-template-columns: 1fr;
+    }
+
+    .contenido-portada h1 {
+        font-size: 65px;
+    }
+}
