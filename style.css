@@ -1,373 +1,593 @@
+/* mi reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background: #050505;
+    background: #020202;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
-/* =========================
-   ENCABEZADO
-========================= */
+/* para que no lo tape el header */
+#inicio {
+    scroll-margin-top: 72px;
+}
 
+#personajes {
+    scroll-margin-top: 72px;
+}
+
+#episodios {
+    scroll-margin-top: 72px;
+}
+
+#galeria {
+    scroll-margin-top: 72px;
+}
+
+#sobre {
+    scroll-margin-top: 72px;
+}
+
+/* ===================== */
+/* mi header */
+/* ===================== */
 .header {
-    height: 75px;
-    background: #050505;
+    height: 72px;
+    background: rgba(5, 5, 5, 0.96);
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     padding: 0 5%;
-    border-bottom: 2px solid #1c1c1c;
-    position: relative;
-    z-index: 10;
+    border-bottom: 4px solid #e50914;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 0 30px rgba(229, 9, 20, 0.6);
 }
 
-.logo {
-    font-size: 25px;
-    font-weight: 900;
-    line-height: 20px;
-    letter-spacing: -1px;
-    transform: rotate(-2deg);
+/* mi logo con sangre */
+.logo a {
+    font-family: 'Anton', sans-serif;
+    font-size: 35px;
+    line-height: 26px;
+    color: white;
+    text-decoration: none;
+    text-shadow: 3px 3px 0 #000, 0 0 15px #e50914;
+    transform: rotate(-1.5deg);
+    display: block;
 }
 
-.logo span {
+.logo a span {
     color: #e50914;
 }
 
+/* mi menu */
 .menu {
     display: flex;
-    gap: 35px;
+    gap: 28px;
 }
 
 .menu a {
-    color: white;
+    color: #ddd;
     text-decoration: none;
-    font-weight: bold;
-    font-style: italic;
-    transition: 0.3s;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
 }
 
-.menu a:hover,
-.menu .activo {
-    color: #ff101d;
+.menu a:hover {
+    color: #e50914;
 }
 
-.menu .activo {
-    border-bottom: 3px solid #ff101d;
-    padding-bottom: 8px;
-}
-
-.iconos {
-    display: flex;
-    gap: 20px;
-    font-size: 30px;
-}
-
-.iconos span {
-    cursor: pointer;
-}
-
-/* =========================
-   PORTADA
-========================= */
-
+/* ===================== */
+/* mi portada */
+/* ===================== */
 .portada {
-    min-height: 550px;
+    width: 200;
+    height: 88vh;
+    min-height: 650px;
     position: relative;
+    display: flex;
+    align-items: center;
+    background: #000;
     overflow: hidden;
-
-    background:
-        radial-gradient(circle at 75% 40%, rgba(130, 0, 0, 0.45), transparent 35%),
-        radial-gradient(circle at 20% 50%, rgba(100, 0, 0, 0.35), transparent 30%),
-        linear-gradient(90deg, #050505 5%, #170306 45%, #30050a 100%);
+    border-bottom: 5px solid #e50914;
+    margin-bottom: 40px;
 }
 
-.portada::before {
-    content: "";
+/* mi foto */
+.img-portada {
     position: absolute;
     inset: 0;
-
-    background:
-        linear-gradient(
-            115deg,
-            transparent 35%,
-            rgba(180, 0, 0, 0.35) 36%,
-            transparent 40%
-        );
-
-    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    filter: contrast(1.15) saturate(1.2) brightness(0.9);
 }
 
+/* mi sangre del fondo */
+.sangre-fondo {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: radial-gradient(circle at 15% 10%, rgba(229, 9, 20, 0.35) 0%, transparent 25%),
+                radial-gradient(circle at 85% 85%, rgba(139, 0, 0, 0.4) 0%, transparent 35%);
+}
+
+/* mi sombra negra */
+.sombra-negra {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.98) 0%, rgba(5, 0, 0, 0.6) 35%, transparent 70%);
+}
+
+/* SANGRE CHORREANDO DESDE ARRIBA - ESQUINA */
+.sangre-techo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 30px;
+    background: #b80000;
+    z-index: 5;
+}
+
+.sangre-techo::before {
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    width: 8px;
+    height: 60px;
+    background: #b80000;
+    border-radius: 0 0 10px 10px;
+    box-shadow:
+        35px -10px 0 2px #b80000,
+        70px 5px 0 0 #b80000,
+        110px -5px 0 4px #b80000,
+        160px 8px 0 1px #b80000;
+}
+
+/* mi texto */
 .contenido-portada {
     position: relative;
-    z-index: 2;
-    width: 50%;
-    padding: 75px 0 70px 8%;
+    z-index: 4;
+    width: 46%;
+    padding-left: 5%;
 }
 
 .frase {
-    font-size: 20px;
-    font-style: italic;
-    margin-bottom: 5px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #999;
+    font-family: 'Bebas Neue';
 }
 
 .frase-roja {
-    color: #ff101d;
-    font-size: 20px;
-    font-weight: bold;
-    font-style: italic;
-}
-
-.contenido-portada h1 {
-    margin-top: 15px;
-    font-size: clamp(65px, 8vw, 125px);
-    line-height: 0.78;
+    color: #ff0a16;
     font-weight: 900;
-    letter-spacing: -6px;
-    transform: rotate(-2deg);
-    text-shadow: 5px 5px 0 #111;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-family: 'Bebas Neue';
 }
 
-.contenido-portada h1 span {
+/* mis letras con sangre */
+.titulo-sangre {
+    font-family: 'Anton', sans-serif;
+    font-size: 90px;
+    line-height: 0.82;
+    margin: 25px 0;
+    transform: rotate(-2.5deg);
+    color: white;
+    text-shadow: 6px 6px 0 #000;
+}
+
+/* mi palabra MUERTOS con sangre */
+.titulo-sangre span {
     color: #e50914;
-    text-shadow:
-        4px 4px 0 #650006,
-        0 0 20px rgba(255, 0, 0, 0.4);
+    display: block;
+    position: relative;
+    text-shadow: 6px 6px 0 #3a0000, 0 0 35px #e50914;
+    -webkit-text-stroke: 1px #5a0000;
+}
+
+/* mis gotas de sangre */
+.titulo-sangre span::after {
+    content: "";
+    position: absolute;
+    top: 93%;
+    left: 6%;
+    width: 8px;
+    height: 40px;
+    background: linear-gradient(to bottom, #ff0a16, #8a0000);
+    border-radius: 0 0 20px 20px;
+    box-shadow: 28px -10px 0 2px #e50914, 
+                58px -15px 0 1px #b80710, 
+                88px -8px 0 4px #ff0a16, 
+                118px -12px 0 2px #8a0000, 
+                148px -6px 0 3px #e50914;
 }
 
 .descripcion {
-    max-width: 520px;
-    margin-top: 35px;
-    font-size: 17px;
-    line-height: 1.5;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #ddd;
+    max-width: 380px;
+    line-height: 1.7;
+    background: rgba(0, 0, 0, 0.55);
+    padding: 14px;
+    border-left: 4px solid #e50914;
 }
 
 .boton {
     display: inline-block;
-    margin-top: 28px;
-    padding: 15px 35px;
-    background: #e50914;
+    margin-top: 25px;
+    padding: 14px 36px;
+    background: linear-gradient(180deg, #e50914, #8a0000);
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    font-style: italic;
-    border-radius: 3px;
-    box-shadow: 0 0 20px rgba(229, 9, 20, 0.35);
-    transition: 0.3s;
+    font-weight: 900;
+    font-family: 'Bebas Neue';
+    font-size: 20px;
+    clip-path: polygon(6% 0, 100% 0, 94% 100%, 0% 100%);
 }
 
-.boton:hover {
-    background: white;
+.sello {
+    margin-top: 20px;
+    font-size: 10px;
+    letter-spacing: 4px;
     color: #e50914;
-    transform: scale(1.05);
+    border: 1px solid #e50914;
+    display: inline-block;
+    padding: 5px 12px;
 }
 
-/* =========================
-   TARJETAS
-========================= */
-
+/* ===================== */
+/* mis tarjetas - YA SEPARADAS */
+/* ===================== */
 .tarjetas {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-    padding: 8px 5%;
-    background: #030303;
+    gap: 25px;
+    padding: 30px 5%;
+    background: #000;
+    border-top: 4px solid #e50914;
+    border-bottom: 4px solid #e50914;
+    margin-bottom: 50px;
 }
 
 .tarjeta {
-    min-height: 150px;
+    height: 145px;
+    border: 2px solid #e50914;
     display: flex;
     align-items: end;
-    padding: 22px;
-    text-decoration: none;
-    color: white;
-    border: 2px solid #700009;
+    padding: 16px;
     position: relative;
     overflow: hidden;
-    background:
-        linear-gradient(to top, #050505 0%, transparent 70%),
-        linear-gradient(135deg, #240307, #090909);
-    transition: 0.3s;
+    background: #0a0a0a;
+    text-decoration: none;
+    color: white;
+    clip-path: polygon(3% 0, 100% 0, 97% 100%, 0% 100%);
 }
 
-.tarjeta:hover {
-    transform: translateY(-6px);
-    border-color: #ff101d;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.35);
+.tarjeta img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.22;
 }
 
 .tarjeta h2 {
-    font-size: 24px;
-    font-style: italic;
     position: relative;
-    z-index: 2;
+    z-index: 1;
+    font-size: 16px;
+    font-family: 'Bebas Neue';
 }
 
-.tarjeta h2 span {
-    color: #ff101d;
-    font-size: 35px;
+.salpicon {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    width: 8px;
+    height: 8px;
+    background: #e50914;
+    border-radius: 50%;
+    box-shadow: -10px 6px 0 #8a0000;
 }
 
-/* Diferentes fondos */
-
-.personajes {
-    background:
-        linear-gradient(to top, #050505, transparent),
-        radial-gradient(circle at 50% 30%, #75000b, #080808 65%);
-}
-
-.episodios {
-    background:
-        linear-gradient(to top, #050505, transparent),
-        radial-gradient(circle at 50% 30%, #450008, #080808 65%);
-}
-
-.galeria {
-    background:
-        linear-gradient(to top, #050505, transparent),
-        radial-gradient(circle at 50% 30%, #72000a, #080808 65%);
-}
-
-.sobre {
-    background:
-        linear-gradient(to top, #050505, transparent),
-        radial-gradient(circle at 50% 30%, #400006, #080808 65%);
-}
-
-/* =========================
-   INFORMACIÓN
-========================= */
-
+/* ===================== */
+/* mi info - YA SEPARADA */
+/* ===================== */
 .informacion {
-    min-height: 430px;
-    padding: 70px 7%;
+    padding: 60px 5%;
     display: grid;
-    grid-template-columns: 1.2fr 1fr 0.7fr;
-    align-items: center;
-    gap: 50px;
-    background:
-        radial-gradient(circle at 40% 50%, #260306, transparent 40%),
-        #050505;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    background: #050505;
+    border-bottom: 3px solid #222;
+    margin-bottom: 50px;
 }
 
 .imagen-info {
-    height: 300px;
-    background:
-        linear-gradient(135deg, #450008, #111 50%, #260006);
-    border: 4px solid #1b1b1b;
-    transform: rotate(-3deg);
-    box-shadow: 10px 10px 0 #9b0009;
+    height: 200px;
+    border: 3px solid #e50914;
+    overflow: hidden;
+    position: relative;
+    transform: rotate(-1deg);
+}
+
+.imagen-info img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .texto-info h2 {
-    font-size: 45px;
-    font-style: italic;
-    margin-bottom: 20px;
+    font-family: 'Anton';
+    font-size: 30px;
 }
 
 .texto-info h2 span {
     color: #e50914;
 }
 
-.texto-info p {
-    line-height: 1.6;
-    color: #ddd;
-}
-
-.pequeño {
-    padding: 12px 25px;
+.frase-sucia {
+    color: #e50914 !important;
+    font-family: 'Bebas Neue' !important;
+    font-size: 15px !important;
+    margin-top: 12px !important;
+    border: 1px solid #e50914;
+    padding: 6px;
 }
 
 .frase-final {
-    font-size: 23px;
-    font-weight: bold;
-    font-style: italic;
-    line-height: 1.3;
+    font-family: 'Anton';
+    font-size: 24px;
 }
 
 .frase-final span {
     color: #e50914;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* ===================== */
+/* mi titulo general */
+/* ===================== */
+.encabezado {
+    margin-bottom: 40px;
+    border-left: 6px solid #e50914;
+    padding-left: 18px;
+}
 
-footer {
-    min-height: 100px;
-    border-top: 2px solid #300006;
+.encabezado h1 {
+    font-family: 'Anton';
+    font-size: 44px;
+}
+
+.encabezado p {
+    color: #ff0a16;
+    font-family: 'Bebas Neue';
+    letter-spacing: 2px;
+}
+
+/* ===================== */
+/* mis personajes */
+/* ===================== */
+.pagina-personajes {
+    padding: 80px 5%;
+    background: #080808;
+    border-top: 5px solid #e50914;
+    margin-bottom: 20px;
+}
+
+.lista-personajes {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 28px;
+}
+
+.personaje {
+    border: 2px solid #1a1a1a;
+    background: #111;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.foto-personaje {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.foto-personaje img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.datos {
+    padding: 14px;
+    background: #0a0a0a;
+}
+
+.datos span {
+    color: #e50914;
+    font-family: 'Anton';
+}
+
+.datos h2 {
+    font-size: 13px;
+    font-family: 'Bebas Neue';
+    letter-spacing: 1px;
+}
+
+/* ===================== */
+/* mis episodios */
+/* ===================== */
+.pagina-episodios {
+    padding: 80px 5%;
+    background: #050505;
+    margin-bottom: 20px;
+}
+
+.lista-episodios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
+
+.episodio {
+    border: 2px solid #222;
+    background: #111;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.foto-ep {
+    height: 170px;
+    position: relative;
+    overflow: hidden;
+}
+
+.foto-ep img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #e50914;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 25px 7%;
-    background: #020202;
+    justify-content: center;
+    border-radius: 50%;
 }
 
-.redes {
-    font-size: 22px;
-    color: white;
+.datos-ep {
+    padding: 14px;
 }
 
-.nombre-footer {
-    letter-spacing: 7px;
-    font-style: italic;
+.datos-ep span {
+    color: #e50914;
+    font-family: 'Anton';
 }
 
-.advertencia {
-    font-size: 12px;
-    font-style: italic;
-    text-align: right;
+/* ===================== */
+/* mi galeria */
+/* ===================== */
+.pagina-galeria {
+    padding: 80px 5%;
+    background: #080808;
+    border-top: 5px solid #e50914;
+    margin-bottom: 20px;
 }
 
-.advertencia span {
+.lista-galeria {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.foto-g {
+    height: 200px;
+    border: 3px solid #e50914;
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+}
+
+.foto-g img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===================== */
+/* mi sobre */
+/* ===================== */
+.pagina-sobre {
+    padding: 80px 5%;
+    background: #000;
+}
+
+.contenido-sobre {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 60px;
+    margin-top: 35px;
+}
+
+.img-sobre {
+    border: 5px solid #e50914;
+    height: 480px;
+    transform: rotate(-2deg);
+    overflow: hidden;
+    position: relative;
+}
+
+.img-sobre img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.txt-sobre h2 {
+    font-family: 'Anton';
+    font-size: 36px;
+}
+
+.txt-sobre h2 span {
     color: #e50914;
 }
 
-/* =========================
-   CELULAR
-========================= */
-
-@media (max-width: 900px) {
-
-    .menu {
-        display: none;
-    }
-
-    .contenido-portada {
-        width: 90%;
-        padding-left: 7%;
-    }
-
-    .tarjetas {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .informacion {
-        grid-template-columns: 1fr;
-    }
-
-    footer {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
-
-    .advertencia {
-        text-align: center;
-    }
+.sangre {
+    font-family: 'Anton' !important;
+    color: #ff0a16 !important;
+    font-size: 26px !important;
+    margin: 22px 0;
+    background: rgba(229, 9, 20, 0.1);
+    padding: 12px;
+    border: 2px dashed #e50914;
+    transform: rotate(-1deg);
+    display: inline-block;
 }
 
-@media (max-width: 500px) {
-
-    .tarjetas {
-        grid-template-columns: 1fr;
-    }
-
-    .contenido-portada h1 {
-        font-size: 65px;
-    }
+/* ===================== */
+/* mi boton volver */
+/* ===================== */
+.volver-inicio {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    background: linear-gradient(180deg, #e50914, #8a0000);
+    color: white;
+    padding: 15px 24px;
+    text-decoration: none;
+    font-family: 'Bebas Neue';
+    font-size: 22px;
+    z-index: 999;
+    border: 3px solid #5a0000;
+    clip-path: polygon(8% 0, 100% 0, 92% 100%, 0% 100%);
+    box-shadow: 0 6px 0 #3a0000, 0 0 35px rgba(229, 9, 20, 0.9);
+}
+.portada h1 {
+    font-size: 600%;
 }

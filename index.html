@@ -1,144 +1,164 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Estamos Muertos</title>
-
+    <title>ESTAMOS MUERTOS</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-    <!-- ENCABEZADO -->
-    <header class="header">
+<!-- mi header -->
+<header class="header">
+    <!-- mi logo con sangre -->
+    <div class="logo">
+        <a href="#inicio">ESTAMOS<br><span>MUERTOS</span></a>
+    </div>
+    <!-- mi menu -->
+    <nav class="menu">
+        <a href="#inicio">INICIO</a>
+        <a href="#personajes">PERSONAJES</a>
+        <a href="#episodios">EPISODIOS</a>
+        <a href="#galeria">GALERIA</a>
+        <a href="#sobre">SOBRE</a>
+    </nav>
+</header>
 
-        <div class="logo">
-            ESTAMOS<br>
-            <span>MUERTOS</span>
+<!-- mi portada - AQUI ESTA EL INICIO DONDE DICE ESTAMOS MUERTOS -->
+<section class="portada" id="inicio">
+    <!-- mi foto -->
+    <img class="img-portada" src="img/portada.jpeg" alt="portada">
+    <!-- mi sangre del fondo -->
+    <div class="sangre-fondo"></div>
+    <!-- mi sombra negra -->
+    <div class="sombra-negra"></div>
+    <!-- mis manchas de sangre -->
+    <div class="sangre-techo"></div>
+    <!-- mi texto -->
+    <div class="contenido-portada">
+        <p class="frase">NO ES SOLO UN VIRUS...</p>
+        <p class="frase-roja">ES EL FIN DEL MUNDO.</p>
+        <!-- mis letras con sangre -->
+        <h1 class="titulo-sangre">ESTAMOS<br><span>MUERTOS</span></h1>
+        <!-- mi palabra MUERTOS con sangre ya tiene las gotas -->
+        <p class="descripcion">Un grupo de estudiantes queda atrapado en su escuela cuando un virus zombie se propaga. Sangre por todos lados. Ahora deben luchar por sobrevivir.</p>
+        <a href="#personajes" class="boton">▶️ VER AHORA</a>
+        <div class="sello">NETFLIX • 2022 • PURA SANGRE</div>
+    </div>
+</section>
+
+<!-- mis tarjetas -->
+<section class="tarjetas">
+    <a href="#personajes" class="tarjeta">
+        <img src="img/personajes.jpg" alt="">
+        <h2>PERSONAJES <span>→</span></h2>
+        <div class="salpicon"></div>
+    </a>
+    <a href="#episodios" class="tarjeta">
+        <img src="img/episodios.jpg" alt="">
+        <h2>EPISODIOS <span>→</span></h2>
+        <div class="salpicon"></div>
+    </a>
+    <a href="#galeria" class="tarjeta">
+        <img src="img/galeria.jpg" alt="">
+        <h2>GALERIA <span>→</span></h2>
+        <div class="salpicon"></div>
+    </a>
+    <a href="#sobre" class="tarjeta">
+        <img src="img/escuela.jpg" alt="">
+        <h2>SOBRE <span>→</span></h2>
+        <div class="salpicon"></div>
+    </a>
+</section>
+
+<!-- mi seccion de que trata -->
+<section class="informacion">
+    <div class="imagen-info">
+        <img src="img/escuela.jpg" alt="">
+        <div class="sangre-esquina"></div>
+    </div>
+    <div class="texto-info">
+        <h2>¿DE QUE <span>TRATA?</span></h2>
+        <p>Cuando un virus mortal se propaga en la secundaria Hyosan, los estudiantes luchan por sobrevivir. La escuela se convierte en un infierno lleno de sangre.</p>
+        <p class="frase-sucia">" SI NO LOS MATAS , ELLOS TE COMEN "</p>
+    </div>
+    <div class="frase-final">SOBREVIVIR ES<br><span>LA UNICA OPCION</span></div>
+</section>
+
+<!-- mis personajes -->
+<section class="pagina-personajes" id="personajes">
+    <!-- mi titulo general -->
+    <div class="encabezado">
+        <h1>PERSONAJES</h1>
+        <p>10 SOBREVIVIENTES MANCHADOS DE SANGRE</p>
+    </div>
+    <div class="lista-personajes">
+        <div class="personaje"><div class="foto-personaje"><img src="img/onjo.jpg" alt=""><div class="sangre-cara"></div></div><div class="datos"><span>01</span><h2>ON-JO</h2></div></div>
+        <div class="personaje"><div class="foto-personaje"><img src="img/cheongsan.jpg" alt=""><div class="sangre-cara"></div></div><div class="datos"><span>02</span><h2>CHEONG-SAN</h2></div></div>
+        <div class="personaje"><div class="foto-personaje"><img src="img/suhyeok.jpg" alt=""><div class="sangre-cara"></div></div><div class="datos"><span>03</span><h2>SU-HYEOK</h2></div></div>
+        <div class="personaje"><div class="foto-personaje"><img src="img/namra.jpg" alt=""><div class="sangre-cara"></div></div><div class="datos"><span>04</span><h2>NAM-RA</h2></div></div>
+        <div class="personaje"><div class="foto-personaje"><img src="img/nayeon.jpg" alt=""><div class="sangre-cara"></div></div><div class="datos"><span>05</span><h2>NA-YEON</h2></div></div>
+        <div class="personaje"><div class="foto-personaje"><img src="img/gwinam.jpg" alt=""><div class="sangre-cara"></div></div><div class="datos"><span>06</span><h2>GWI-NAM</h2></div></div>
+        <div class="personaje"><div class="foto-personaje"><img src="img/cheolsoo.jpg" alt=""><div class="sangre-cara"></div></div><div class="datos"><span>07</span><h2>CHEOL-SOO</h2></div></div>
+        <div class="personaje"><div class="foto-personaje"><img src="img/gyeongsu.jpg" alt=""><div class="sangre-cara"></div></div><div class="datos"><span>08</span><h2>GYEONG-SU</h2></div></div>
+        <div class="personaje"><div class="foto-personaje"><img src="img/namsoju.jpg" alt=""><div class="sangre-cara"></div></div><div class="datos"><span>09</span><h2>NAM SO-JU</h2></div></div>
+        <div class="personaje"><div class="foto-personaje"><img src="img/mijin.jpg" alt=""><div class="sangre-cara"></div></div><div class="datos"><span>10</span><h2>MI-JIN</h2></div></div>
+    </div>
+</section>
+
+<!-- mis episodios -->
+<section class="pagina-episodios" id="episodios">
+    <!-- mi titulo general -->
+    <div class="encabezado">
+        <h1>EPISODIOS</h1>
+        <p>12 CAPITULOS DE PURA SANGRE</p>
+    </div>
+    <div class="lista-episodios">
+        <div class="episodio"><div class="foto-ep"><img src="img/episodios.jpg" alt=""><span class="play">▶️</span><div class="sangre-ep"></div></div><div class="datos-ep"><span>01</span><h2>EPISODIO 1 - EL VIRUS</h2><p>Todo empieza con sangre.</p></div></div>
+        <div class="episodio"><div class="foto-ep"><img src="img/episodios.jpg" alt=""><span class="play">▶️</span><div class="sangre-ep"></div></div><div class="datos-ep"><span>02</span><h2>EPISODIO 2 - BAÑO DE SANGRE</h2><p>Pasillos llenos de sangre.</p></div></div>
+        <div class="episodio"><div class="foto-ep"><img src="img/episodios.jpg" alt=""><span class="play">▶️</span><div class="sangre-ep"></div></div><div class="datos-ep"><span>03</span><h2>EPISODIO 3 - SE LOS COMEN</h2><p>Sangre por todos lados.</p></div></div>
+    </div>
+</section>
+
+<!-- mi galeria -->
+<section class="pagina-galeria" id="galeria">
+    <!-- mi titulo general -->
+    <div class="encabezado">
+        <h1>GALERIA</h1>
+        <p>FOTOS SANGRIENTAS</p>
+    </div>
+    <div class="lista-galeria">
+        <div class="foto-g"><img src="img/galeria.jpg" alt=""><div class="sangre-g"></div></div>
+        <div class="foto-g"><img src="img/personajes.jpg" alt=""><div class="sangre-g"></div></div>
+        <div class="foto-g"><img src="img/escuela.jpg" alt=""><div class="sangre-g"></div></div>
+        <div class="foto-g"><img src="img/portada.jpg" alt=""><div class="sangre-g"></div></div>
+    </div>
+</section>
+
+<!-- mi sobre -->
+<section class="pagina-sobre" id="sobre">
+    <!-- mi titulo general -->
+    <div class="encabezado">
+        <h1>SOBRE LA SERIE</h1>
+        <p>ALL OF US ARE DEAD - 2022</p>
+    </div>
+    <div class="contenido-sobre">
+        <div class="img-sobre">
+            <img src="img/portada.jpg" alt="">
+            <div class="sangre-sobre"></div>
         </div>
-
-        <nav class="menu">
-            <a href="index.html" class="activo">INICIO</a>
-            <a href="personajes.html">PERSONAJES</a>
-            <a href="#">EPISODIOS</a>
-            <a href="#">GALERÍA</a>
-            <a href="#">SOBRE LA SERIE</a>
-        </nav>
-
-        <div class="iconos">
-            <span>⌕</span>
-            <span>☰</span>
+        <div class="txt-sobre">
+            <h2>ESTAMOS <span>MUERTOS</span></h2>
+            <p>Netflix 2022. Un profesor crea un virus. Se sale de control. La secundaria Hyosan se vuelve un rastro con sangre en las paredes.</p>
+            <p class="sangre">SOBREVIVIR ES LA UNICA OPCION</p>
+            <a href="#inicio" class="boton">VOLVER A INICIO</a>
         </div>
+    </div>
+</section>
 
-    </header>
-
-
-    <!-- PORTADA -->
-    <section class="portada">
-
-        <div class="contenido-portada">
-
-            <p class="frase">NO ES SOLO UN VIRUS...</p>
-
-            <p class="frase-roja">ES EL FIN DEL MUNDO.</p>
-
-            <h1>
-                ESTAMOS<br>
-                <span>MUERTOS</span>
-            </h1>
-
-            <p class="descripcion">
-                Un grupo de estudiantes queda atrapado en su escuela
-                cuando un virus zombi se propaga. Ahora, deben luchar
-                por sobrevivir mientras todo a su alrededor se desmorona.
-            </p>
-
-            <a href="#" class="boton">
-                ▶️ VER AHORA
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- TARJETAS -->
-    <section class="tarjetas">
-
-        <a href="personajes.html" class="tarjeta personajes">
-            <h2>PERSONAJES <span>›</span></h2>
-        </a>
-
-        <a href="#" class="tarjeta episodios">
-            <h2>EPISODIOS <span>›</span></h2>
-        </a>
-
-        <a href="#" class="tarjeta galeria">
-            <h2>GALERÍA <span>›</span></h2>
-        </a>
-
-        <a href="#" class="tarjeta sobre">
-            <h2>SOBRE LA SERIE <span>›</span></h2>
-        </a>
-
-    </section>
-
-
-    <!-- INFORMACIÓN -->
-    <section class="informacion">
-
-        <div class="imagen-info"></div>
-
-        <div class="texto-info">
-
-            <h2>
-                ¿DE QUÉ <span>TRATA?</span>
-            </h2>
-
-            <p>
-                Después de que un virus desconocido se propaga en la
-                escuela, los estudiantes se ven atrapados en un caos
-                de zombis. Sin ayuda del exterior, deberán unirse,
-                confiar en los demás y luchar por sus vidas mientras
-                el mundo se desmorona.
-            </p>
-
-            <a href="#" class="boton pequeño">
-                VER MÁS →
-            </a>
-
-        </div>
-
-        <div class="frase-final">
-            “EL MIEDO<br>
-            NO ES LO PEOR...<br>
-            <span>LO PEOR ES<br>
-            ESTAR SOLO.</span>”
-        </div>
-
-    </section>
-
-
-    <!-- PIE DE PÁGINA -->
-    <footer>
-
-        <div class="redes">
-            N &nbsp; ◎ &nbsp; ♪ &nbsp; ▶️
-        </div>
-
-        <div class="nombre-footer">
-            ESTAMOS MUERTOS
-        </div>
-
-        <div class="advertencia">
-            NO ES SOLO UNA SERIE...<br>
-            <span>ES UNA ADVERTENCIA.</span>
-        </div>
-
-    </footer>
+<!-- mi boton para volver a donde dice ESTAMOS MUERTOS - YA ARREGLADO -->
+<a href="#inicio" class="volver-inicio">↑ INICIO</a>
 
 </body>
 </html>
