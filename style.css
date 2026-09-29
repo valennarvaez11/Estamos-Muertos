@@ -1,62 +1,53 @@
-/* mi reset */
+/* mi reset general - lo pongo yo al inicio para quitar los margenes que pone el navegador por defecto y que todo empiece en 0 */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; /* quito el margen exterior */
+    padding: 0; /* quito el relleno interior */
+    box-sizing: border-box; /* hago que el padding no agrande el ancho, así me es más fácil calcular */
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* hice que cuando le de click al menú baje suave y no de golpe */
 }
 
 body {
-    background:    radial-gradient(circle at 50% 20%, rgba(150, 0, 0, 0.35), transparent 45%),
-        radial-gradient(circle at 20% 80%, rgba(100, 0, 0, 0.25), transparent 35%),
-        linear-gradient(180deg, #180000 0%, #080000 45%, #020202 100%);
-    color: white;
+    /* mi fondo principal YA ARREGLADO MAS CLARITO con tu imagen portada.jpeg */
+    background-image: url('img/portada.jpeg'); /* tu imagen del inicio */
+    background-size: cover; /* que cubra toda la pantalla */
+    background-position: center; /* centrada */
+    background-attachment: fixed; /* fija efecto parallax */
+    background-repeat: no-repeat;
+    color: white; /* texto blanco */
     font-family: Arial, sans-serif;
-    overflow-x: hidden;
+    overflow-x: hidden; /* evito scroll horizontal en celular */
 }
 
-/* para que no lo tape el header */
-#inicio {
-    scroll-margin-top: 72px;
-}
-
-#personajes {
-    scroll-margin-top: 72px;
-}
-
-#episodios {
-    scroll-margin-top: 72px;
-}
-
-#galeria {
-    scroll-margin-top: 72px;
-}
-
-#sobre {
-    scroll-margin-top: 72px;
-}
+/* le pongo margen al scroll para que mi header sticky de 72px no tape el titulo */
+#inicio { scroll-margin-top: 72px; }
+#personajes { scroll-margin-top: 72px; }
+#episodios { scroll-margin-top: 72px; }
+#galeria { scroll-margin-top: 72px; }
+#sobre { scroll-margin-top: 72px; }
 
 /* ===================== */
-/* mi header */
-/* ===================== */
-.header {
-    height: 72px;
-    background: rgba(5, 5, 5, 0.96);
+/* mi header - mi barra de arriba que se queda fija */
+/* HEADER PRO - ESTAMOS MUERTOS */
+header {
+    height: 80px;
+    background-image: url('img/inicio.jpeg');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: #000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 5%;
-    border-bottom: 4px solid #e50914;
+    border-bottom: 3px solid #e50914;
+    box-shadow: 0 0 25px rgba(229, 9, 20, 0.7);
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 0 30px rgba(229, 9, 20, 0.6);
 }
-
-/* mi logo con sangre */
 .logo a {
     font-family: 'Anton', sans-serif;
     font-size: 35px;
@@ -72,28 +63,32 @@ body {
     color: #e50914;
 }
 
-/* mi menu */
 .menu {
     display: flex;
     gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .menu a {
-    color: #ddd;
+    color: white;
     text-decoration: none;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px;
+    font-size: 19px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px black;
+    transition: 0.3s;
 }
 
 .menu a:hover {
     color: #e50914;
+    text-shadow: 0 0 10px #e50914;
 }
-
-/* ===================== */
-/* mi portada */
+/* mi portada principal - es mi hero */
 /* ===================== */
 .portada {
-    width: 100;
+    width: 100%;
     height: 88vh;
     min-height: 650px;
     position: relative;
@@ -105,7 +100,6 @@ body {
     margin-bottom: 40px;
 }
 
-/* mi foto */
 .img-portada {
     position: absolute;
     inset: 0;
@@ -113,10 +107,10 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: 1;
-    filter: contrast(1.3) saturate(1.1) brightness(0.65);
+    filter: contrast(1.15) saturate(1.2) brightness(1);
+    object-position: top center;
 }
 
-/* mi sangre del fondo */
 .sangre-fondo {
     position: absolute;
     inset: 0;
@@ -125,67 +119,41 @@ body {
                 radial-gradient(circle at 85% 85%, rgba(139, 0, 0, 0.4) 0%, transparent 35%);
 }
 
-/* mi sombra negra */
 .sombra-negra {
     position: absolute;
     inset: 0;
     z-index: 2;
    background:
-    radial-gradient(circle at 65% 45%, transparent 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0.92) 100%),
-    linear-gradient(90deg, rgba(0,0,0,0.98) 0%, rgba(10,0,0,0.82) 45%, rgba(0,0,0,0.55) 100%);
+    radial-gradient(circle at 65% 45%, transparent 20%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.85) 100%),
+    linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.1) 100%);
 }
 
-/* SANGRE CHORREANDO DESDE ARRIBA - ESQUINA */
 .sangre-techo {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 300px;
-    height: 30px;
+    top: 0; left: 0;
+    width: 300px; height: 30px;
     background: #b80000;
     z-index: 5;
 }
-
 .sangre-techo::before {
     content: "";
     position: absolute;
-    top: 30px;
-    left: 20px;
-    width: 8px;
-    height: 60px;
+    top: 30px; left: 20px;
+    width: 8px; height: 60px;
     background: #b80000;
     border-radius: 0 0 10px 10px;
-    box-shadow:
-        35px -10px 0 2px #b80000,
-        70px 5px 0 0 #b80000,
-        110px -5px 0 4px #b80000,
-        160px 8px 0 1px #b80000;
+    box-shadow: 35px -10px 0 2px #b80000, 70px 5px 0 0 #b80000, 110px -5px 0 4px #b80000, 160px 8px 0 1px #b80000;
 }
 
-/* mi texto */
 .contenido-portada {
     position: relative;
     z-index: 4;
     width: 46%;
     padding-left: 5%;
 }
+.frase { font-size: 12px; letter-spacing: 3px; color: #999; font-family: 'Bebas Neue'; }
+.frase-roja { color: #ff0a16; font-weight: 900; font-size: 13px; letter-spacing: 2px; font-family: 'Bebas Neue'; }
 
-.frase {
-    font-size: 12px;
-    letter-spacing: 3px;
-    color: #999;
-    font-family: 'Bebas Neue';
-}
-
-.frase-roja {
-    color: #ff0a16;
-    font-weight: 900;
-    font-size: 13px;
-    letter-spacing: 2px;
-    font-family: 'Bebas Neue';
-}
-
-/* mis letras con sangre */
 .titulo-sangre {
     font-family: 'Anton', sans-serif;
     font-size: 90px;
@@ -195,8 +163,6 @@ body {
     color: white;
     text-shadow: 6px 6px 0 #000;
 }
-
-/* mi palabra MUERTOS con sangre */
 .titulo-sangre span {
     color: #e50914;
     display: block;
@@ -204,35 +170,25 @@ body {
     text-shadow: 6px 6px 0 #3a0000, 0 0 35px #e50914;
     -webkit-text-stroke: 1px #5a0000;
 }
-
-/* mis gotas de sangre */
 .titulo-sangre span::after {
     content: "";
     position: absolute;
-    top: 93%;
-    left: 6%;
-    width: 8px;
-    height: 40px;
+    top: 93%; left: 6%;
+    width: 8px; height: 40px;
     background: linear-gradient(to bottom, #ff0a16, #8a0000);
     border-radius: 0 0 20px 20px;
-    box-shadow: 28px -10px 0 2px #e50914, 
-                58px -15px 0 1px #b80710, 
-                88px -8px 0 4px #ff0a16, 
-                118px -12px 0 2px #8a0000, 
-                148px -6px 0 3px #e50914;
+    box-shadow: 28px -10px 0 2px #e50914, 58px -15px 0 1px #b80710, 88px -8px 0 4px #ff0a16, 118px -12px 0 2px #8a0000, 148px -6px 0 3px #e50914;
 }
-
 .descripcion {
     margin-top: 25px;
     font-size: 14px;
     color: #ddd;
     max-width: 380px;
     line-height: 1.7;
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(0, 0, 0, 0.65);
     padding: 14px;
     border-left: 4px solid #e50914;
 }
-
 .boton {
     display: inline-block;
     margin-top: 25px;
@@ -245,7 +201,6 @@ body {
     font-size: 20px;
     clip-path: polygon(6% 0, 100% 0, 94% 100%, 0% 100%);
 }
-
 .sello {
     margin-top: 20px;
     font-size: 10px;
@@ -257,19 +212,22 @@ body {
 }
 
 /* ===================== */
-/* mis tarjetas - YA SEPARADAS */
+/* mis tarjetas - AHORA CON FONDO CLARITO PARA QUE SE VEA portada.jpeg */
 /* ===================== */
 .tarjetas {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
     padding: 30px 5%;
-    background: #000;
+    /* antes tenia 0.75 muy oscuro, ahora 0.40 mas clarito para que se vea el fondo */
+    background-image: linear-gradient(rgba(0,0,0,0.40), rgba(0,0,0,0.40)), url('img/portada.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     border-top: 4px solid #e50914;
     border-bottom: 4px solid #e50914;
     margin-bottom: 50px;
 }
-
 .tarjeta {
     height: 145px;
     border: 2px solid #e50914;
@@ -283,285 +241,112 @@ body {
     color: white;
     clip-path: polygon(3% 0, 100% 0, 97% 100%, 0% 100%);
 }
-
-.tarjeta img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.22;
-}
-
-.tarjeta h2 {
-    position: relative;
-    z-index: 1;
-    font-size: 16px;
-    font-family: 'Bebas Neue';
-}
-
-.salpicon {
-    position: absolute;
-    top: 10px;
-    right: 14px;
-    width: 8px;
-    height: 8px;
-    background: #e50914;
-    border-radius: 50%;
-    box-shadow: -10px 6px 0 #8a0000;
-}
+.tarjeta img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; }
+.tarjeta h2 { position: relative; z-index: 1; font-size: 16px; font-family: 'Bebas Neue'; }
+.salpicon { position: absolute; top: 10px; right: 14px; width: 8px; height: 8px; background: #e50914; border-radius: 50%; box-shadow: -10px 6px 0 #8a0000; }
 
 /* ===================== */
-/* mi info - YA SEPARADA */
+/* mi seccion de informacion - MAS CLARITA */
 /* ===================== */
 .informacion {
     padding: 60px 5%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 40px;
-    background: #050505;
+    /* antes 0.80 oscuro, ahora 0.45 clarito */
+    background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('img/portada.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     border-bottom: 3px solid #222;
     margin-bottom: 50px;
 }
-
-.imagen-info {
-    height: 200px;
-    border: 3px solid #e50914;
-    overflow: hidden;
-    position: relative;
-    transform: rotate(-1deg);
-}
-
-.imagen-info img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.texto-info h2 {
-    font-family: 'Anton';
-    font-size: 30px;
-}
-
-.texto-info h2 span {
-    color: #e50914;
-}
-
-.frase-sucia {
-    color: #e50914 !important;
-    font-family: 'Bebas Neue' !important;
-    font-size: 15px !important;
-    margin-top: 12px !important;
-    border: 1px solid #e50914;
-    padding: 6px;
-}
-
-.frase-final {
-    font-family: 'Anton';
-    font-size: 24px;
-}
-
-.frase-final span {
-    color: #e50914;
-}
+.imagen-info { height: 200px; border: 3px solid #e50914; overflow: hidden; position: relative; transform: rotate(-1deg); }
+.imagen-info img { width: 100%; height: 100%; object-fit: cover; }
+.texto-info h2 { font-family: 'Anton'; font-size: 30px; }
+.texto-info h2 span { color: #e50914; }
+.frase-sucia { color: #e50914 !important; font-family: 'Bebas Neue' !important; font-size: 15px !important; margin-top: 12px !important; border: 1px solid #e50914; padding: 6px; }
+.frase-final { font-family: 'Anton'; font-size: 24px; }
+.frase-final span { color: #e50914; }
 
 /* ===================== */
-/* mi titulo general */
+/* mi titulo general reutilizable */
 /* ===================== */
-.encabezado {
-    margin-bottom: 40px;
-    border-left: 6px solid #e50914;
-    padding-left: 18px;
-}
-
-.encabezado h1 {
-    font-family: 'Anton';
-    font-size: 44px;
-}
-
-.encabezado p {
-    color: #ff0a16;
-    font-family: 'Bebas Neue';
-    letter-spacing: 2px;
-}
+.encabezado { margin-bottom: 40px; border-left: 6px solid #e50914; padding-left: 18px; }
+.encabezado h1 { font-family: 'Anton'; font-size: 44px; }
+.encabezado p { color: #ff0a16; font-family: 'Bebas Neue'; letter-spacing: 2px; }
 
 /* ===================== */
-/* mis personajes */
+/* mi pagina de personajes - MAS CLARITA */
 /* ===================== */
 .pagina-personajes {
     padding: 80px 5%;
-    background: #080808;
+    /* antes 0.82 muy oscuro, ahora 0.50 para que se alcance a ver el fondo */
+    background-image: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)), url('img/portada.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     border-top: 5px solid #e50914;
     margin-bottom: 20px;
 }
-
-.lista-personajes {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 28px;
-}
-
-.personaje {
-    border: 2px solid #1a1a1a;
-    background: #111;
-    overflow: hidden;
-    border-radius: 6px;
-}
-
-.foto-personaje {
-    height: 220px;
-    overflow: hidden;
-    position: relative;
-}
-
-.foto-personaje img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.datos {
-    padding: 14px;
-    background: #0a0a0a;
-}
-
-.datos span {
-    color: #e50914;
-    font-family: 'Anton';
-}
-
-.datos h2 {
-    font-size: 13px;
-    font-family: 'Bebas Neue';
-    letter-spacing: 1px;
-}
+.lista-personajes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 28px; }
+.personaje { border: 2px solid #1a1a1a; background: #111; overflow: hidden; border-radius: 6px; }
+.foto-personaje { height: 220px; overflow: hidden; position: relative; }
+.foto-personaje img { width: 100%; height: 100%; object-fit: cover; }
+.datos { padding: 14px; background: #0a0a0a; }
+.datos span { color: #e50914; font-family: 'Anton'; }
+.datos h2 { font-size: 13px; font-family: 'Bebas Neue'; letter-spacing: 1px; }
 
 /* ===================== */
-/* mis episodios */
+/* mi pagina de episodios - MAS CLARITA */
 /* ===================== */
 .pagina-episodios {
     padding: 80px 5%;
-    background: #050505;
+    background-image: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)), url('img/portada.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     margin-bottom: 20px;
 }
-
-.lista-episodios {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 35px;
-}
-
-.episodio {
-    border: 2px solid #222;
-    background: #111;
-    border-radius: 6px;
-    overflow: hidden;
-}
-
-.foto-ep {
-    height: 170px;
-    position: relative;
-    overflow: hidden;
-}
-
-.foto-ep img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.6;
-}
-
-.play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #e50914;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-}
-
-.datos-ep {
-    padding: 14px;
-}
-
-.datos-ep span {
-    color: #e50914;
-    font-family: 'Anton';
-}
+.lista-episodios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; }
+.episodio { border: 2px solid #222; background: #111; border-radius: 6px; overflow: hidden; }
+.foto-ep { height: 170px; position: relative; overflow: hidden; }
+.foto-ep img { width: 100%; height: 100%; object-fit: cover; opacity: 0.75; }
+.play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #e50914; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+.datos-ep { padding: 14px; }
+.datos-ep span { color: #e50914; font-family: 'Anton'; }
 
 /* ===================== */
-/* mi galeria */
+/* mi galeria - MAS CLARITA */
 /* ===================== */
 .pagina-galeria {
     padding: 80px 5%;
-    background: #080808;
+    background-image: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)), url('img/portada.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     border-top: 5px solid #e50914;
     margin-bottom: 20px;
 }
-
-.lista-galeria {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
-}
-
-.foto-g {
-    height: 200px;
-    border: 3px solid #e50914;
-    overflow: hidden;
-    position: relative;
-    border-radius: 4px;
-}
-
-.foto-g img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+.lista-galeria { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.foto-g { height: 200px; border: 3px solid #e50914; overflow: hidden; position: relative; border-radius: 4px; }
+.foto-g img { width: 100%; height: 100%; object-fit: cover; }
 
 /* ===================== */
-/* mi sobre */
+/* mi pagina sobre la serie - MAS CLARITA */
 /* ===================== */
 .pagina-sobre {
     padding: 80px 5%;
-    background: #000;
+    background-image: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)), url('img/portada.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
-
-.contenido-sobre {
-    display: grid;
-    grid-template-columns: 340px 1fr;
-    gap: 60px;
-    margin-top: 35px;
-}
-
-.img-sobre {
-    border: 5px solid #e50914;
-    height: 480px;
-    transform: rotate(-2deg);
-    overflow: hidden;
-    position: relative;
-}
-
-.img-sobre img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.txt-sobre h2 {
-    font-family: 'Anton';
-    font-size: 36px;
-}
-
-.txt-sobre h2 span {
-    color: #e50914;
-}
-
+.contenido-sobre { display: grid; grid-template-columns: 340px 1fr; gap: 60px; margin-top: 35px; }
+.img-sobre { border: 5px solid #e50914; height: 480px; transform: rotate(-2deg); overflow: hidden; position: relative; }
+.img-sobre img { width: 100%; height: 100%; object-fit: cover; }
+.txt-sobre h2 { font-family: 'Anton'; font-size: 36px; }
+.txt-sobre h2 span { color: #e50914; }
 .sangre {
     font-family: 'Anton' !important;
     color: #ff0a16 !important;
@@ -575,12 +360,11 @@ body {
 }
 
 /* ===================== */
-/* mi boton volver */
+/* mi boton flotante para volver al inicio */
 /* ===================== */
 .volver-inicio {
     position: fixed;
-    bottom: 28px;
-    right: 28px;
+    bottom: 28px; right: 28px;
     background: linear-gradient(180deg, #e50914, #8a0000);
     color: white;
     padding: 15px 24px;
@@ -593,4 +377,25 @@ body {
     box-shadow: 0 6px 0 #3a0000, 0 0 35px rgba(229, 9, 20, 0.9);
 }
 
-
+/* ===================== */
+/* MI FOOTER - TAMBIEN MAS CLARITO */
+/* ===================== */
+.footer {
+  background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('img/portada.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  border-top: 5px solid #e50914;
+  padding: 60px 5% 30px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 40px rgba(229,9,20,0.4) inset;
+}
+.footer h2 { font-family: 'Anton'; font-size: 38px; transform: rotate(-1.5deg); text-shadow: 3px 3px 0 #000, 0 0 15px #e50914; }
+.footer h2 span { color: #e50914; }
+.footer p { font-family: 'Bebas Neue'; letter-spacing: 2px; color: #ff0a16; margin-top: 10px; font-size: 13px; }
+.footer-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.footer-links a { color: #999; text-decoration: none; font-family: 'Bebas Neue'; font-size: 16px; }
+.footer-links a:hover { color: #e50914; }
+.copy { margin-top: 30px; font-size: 11px; color: #555; border-top: 1px solid #222; padding-top: 15px; }
+.footer-sangre { position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: #b80000; }
