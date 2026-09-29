@@ -1,27 +1,27 @@
-/* mi reset general - lo pongo yo al inicio para quitar los margenes que pone el navegador por defecto y que todo empiece en 0 */
+/*  aqui hice mi reset, esto lo pongo siempre al inicio para que el navegador no me ponga margenes raros y todo empiece limpio en 0 */
 * {
-    margin: 0; /* quito el margen exterior */
-    padding: 0; /* quito el relleno interior */
-    box-sizing: border-box; /* hago que el padding no agrande el ancho, así me es más fácil calcular */
+    margin: 0; /* aqui le quito el margen de afuera que pone el navegador */
+    padding: 0; /* aqui le quito el relleno de adentro */
+    box-sizing: border-box; /* esto lo puse para que el padding no me agrande las cajas y no se me descuadre todo */
 }
 
 html {
-    scroll-behavior: smooth; /* hice que cuando le de click al menú baje suave y no de golpe */
+    scroll-behavior: smooth; /* esto lo puse yo para que cuando le de click al menu baje suavecito y no de un salto todo feo */
 }
 
 body {
-    /* mi fondo principal YA ARREGLADO MAS CLARITO con tu imagen portada.jpeg */
-    background-image: url('img/portada.jpeg'); /* tu imagen del inicio */
-    background-size: cover; /* que cubra toda la pantalla */
-    background-position: center; /* centrada */
-    background-attachment: fixed; /* fija efecto parallax */
+    /* este es mi fondo principal, yo lo arregle para que se vea mas clarito, es tu portada.jpeg */
+    background-image: url('img/portada.jpeg'); /* esta es la imagen del inicio que yo quiero que se vea atras */
+    background-size: cover; /* para que me cubra toda la pantalla */
+    background-position: center; /* la centre para que se vea bien */
+    background-attachment: fixed; /* la deje fija para que tenga el efecto que se mueve bonito cuando hago scroll */
     background-repeat: no-repeat;
-    color: white; /* texto blanco */
+    color: white; /* todo el texto en blanco */
     font-family: Arial, sans-serif;
-    overflow-x: hidden; /* evito scroll horizontal en celular */
+    overflow-x: hidden; /* esto lo puse porque en el celular se me estaba moviendo de lado y no quiero eso */
 }
 
-/* le pongo margen al scroll para que mi header sticky de 72px no tape el titulo */
+/*  le puse esto al scroll para que cuando le de click al menu no me tape el titulo el header que mide 72px */
 #inicio { scroll-margin-top: 72px; }
 #personajes { scroll-margin-top: 72px; }
 #episodios { scroll-margin-top: 72px; }
@@ -29,8 +29,8 @@ body {
 #sobre { scroll-margin-top: 72px; }
 
 /* ===================== */
-/* mi header - mi barra de arriba que se queda fija */
-/* HEADER PRO - ESTAMOS MUERTOS */
+/* este es mi header, es mi barra de arriba que yo hice para que se quede fija cuando bajo */
+/* ===================== */
 header {
     height: 80px;
     background-image: url('img/inicio.jpeg');
@@ -39,14 +39,14 @@ header {
     background-repeat: no-repeat;
     background-color: #000;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* para que el logo quede a un lado y el menu al otro */
     align-items: center;
     padding: 0 5%;
-    border-bottom: 3px solid #e50914;
-    box-shadow: 0 0 25px rgba(229, 9, 20, 0.7);
-    position: sticky;
+    border-bottom: 3px solid #e50914; /* la rayita roja de sangre de abajo */
+    box-shadow: 0 0 25px rgba(229, 9, 20, 0.7); /* le puse brillo rojo para que se vea mas sangriento */
+    position: sticky; /* esto es para que se quede pegado arriba */
     top: 0;
-    z-index: 100;
+    z-index: 100; /* para que quede por encima de todo */
 }
 .logo a {
     font-family: 'Anton', sans-serif;
@@ -55,12 +55,12 @@ header {
     color: white;
     text-decoration: none;
     text-shadow: 3px 3px 0 #000, 0 0 15px #e50914;
-    transform: rotate(-1.5deg);
+    transform: rotate(-1.5deg); /* lo gire un poquito para que se vea como desordenado */
     display: block;
 }
 
 .logo a span {
-    color: #e50914;
+    color: #e50914; /* aqui puse MUERTOS en rojo */
 }
 
 .menu {
@@ -78,14 +78,16 @@ header {
     font-size: 19px;
     letter-spacing: 1px;
     text-shadow: 2px 2px 4px black;
-    transition: 0.3s;
+    transition: 0.3s; /* para que el cambio de color sea suave */
 }
 
 .menu a:hover {
     color: #e50914;
-    text-shadow: 0 0 10px #e50914;
+    text-shadow: 0 0 10px #e50914; /* cuando paso el mouse se pone rojo y brilla */
 }
-/* mi portada principal - es mi hero */
+
+/* ===================== */
+/* esta es mi portada principal, es mi hero, es lo primero que ve la gente */
 /* ===================== */
 .portada {
     width: 100%;
@@ -105,9 +107,9 @@ header {
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* para que la foto no se estire feo */
     z-index: 1;
-    filter: contrast(1.15) saturate(1.2) brightness(1);
+    filter: contrast(1.15) saturate(1.2) brightness(1); /* le subi el contraste para que se vea mas sangre */
     object-position: top center;
 }
 
@@ -116,7 +118,7 @@ header {
     inset: 0;
     z-index: 2;
     background: radial-gradient(circle at 15% 10%, rgba(229, 9, 20, 0.35) 0%, transparent 25%),
-                radial-gradient(circle at 85% 85%, rgba(139, 0, 0, 0.4) 0%, transparent 35%);
+                radial-gradient(circle at 85% 85%, rgba(139, 0, 0, 0.4) 0%, transparent 35%); /* le puse estos brillos rojos como si fuera sangre */
 }
 
 .sombra-negra {
@@ -125,14 +127,14 @@ header {
     z-index: 2;
    background:
     radial-gradient(circle at 65% 45%, transparent 20%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.85) 100%),
-    linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.1) 100%);
+    linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.1) 100%); /* esto es la sombra negra para que las letras blancas si se lean */
 }
 
 .sangre-techo {
     position: absolute;
     top: 0; left: 0;
     width: 300px; height: 30px;
-    background: #b80000;
+    background: #b80000; /* la mancha de sangre de arriba */
     z-index: 5;
 }
 .sangre-techo::before {
@@ -141,7 +143,7 @@ header {
     top: 30px; left: 20px;
     width: 8px; height: 60px;
     background: #b80000;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px; /* esto hace que se vea como que esta goteando */
     box-shadow: 35px -10px 0 2px #b80000, 70px 5px 0 0 #b80000, 110px -5px 0 4px #b80000, 160px 8px 0 1px #b80000;
 }
 
@@ -159,7 +161,7 @@ header {
     font-size: 90px;
     line-height: 0.82;
     margin: 25px 0;
-    transform: rotate(-2.5deg);
+    transform: rotate(-2.5deg); /* lo gire para que se vea mas de terror */
     color: white;
     text-shadow: 6px 6px 0 #000;
 }
@@ -177,7 +179,7 @@ header {
     width: 8px; height: 40px;
     background: linear-gradient(to bottom, #ff0a16, #8a0000);
     border-radius: 0 0 20px 20px;
-    box-shadow: 28px -10px 0 2px #e50914, 58px -15px 0 1px #b80710, 88px -8px 0 4px #ff0a16, 118px -12px 0 2px #8a0000, 148px -6px 0 3px #e50914;
+    box-shadow: 28px -10px 0 2px #e50914, 58px -15px 0 1px #b80710, 88px -8px 0 4px #ff0a16, 118px -12px 0 2px #8a0000, 148px -6px 0 3px #e50914; /* estas son las gotitas que le puse a la palabra MUERTOS */
 }
 .descripcion {
     margin-top: 25px;
@@ -185,7 +187,7 @@ header {
     color: #ddd;
     max-width: 380px;
     line-height: 1.7;
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(0, 0, 0, 0.65); /* le puse fondo negro transparente para que se lea */
     padding: 14px;
     border-left: 4px solid #e50914;
 }
@@ -199,7 +201,7 @@ header {
     font-weight: 900;
     font-family: 'Bebas Neue';
     font-size: 20px;
-    clip-path: polygon(6% 0, 100% 0, 94% 100%, 0% 100%);
+    clip-path: polygon(6% 0, 100% 0, 94% 100%, 0% 100%); /* lo corte en las esquinas para que se vea mas rudo */
 }
 .sello {
     margin-top: 20px;
@@ -212,14 +214,14 @@ header {
 }
 
 /* ===================== */
-/* mis tarjetas - AHORA CON FONDO CLARITO PARA QUE SE VEA portada.jpeg */
+/* estas son mis tarjetitas, yo las hice para que la gente le de click rapido */
 /* ===================== */
 .tarjetas {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
     padding: 30px 5%;
-    /* antes tenia 0.75 muy oscuro, ahora 0.40 mas clarito para que se vea el fondo */
+    /* yo aqui lo cambie, antes estaba muy oscuro en 0.75 y no se veia el fondo, ahora lo puse en 0.40 mas clarito para que si se vea mi portada.jpeg */
     background-image: linear-gradient(rgba(0,0,0,0.40), rgba(0,0,0,0.40)), url('img/portada.jpeg');
     background-size: cover;
     background-position: center;
@@ -246,14 +248,14 @@ header {
 .salpicon { position: absolute; top: 10px; right: 14px; width: 8px; height: 8px; background: #e50914; border-radius: 50%; box-shadow: -10px 6px 0 #8a0000; }
 
 /* ===================== */
-/* mi seccion de informacion - MAS CLARITA */
+/* esta es mi seccion de informacion, donde digo de que trata */
 /* ===================== */
 .informacion {
     padding: 60px 5%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 40px;
-    /* antes 0.80 oscuro, ahora 0.45 clarito */
+    /* antes lo tenia muy oscuro en 0.80 y no se veia nada, ahora lo puse en 0.45 mas clarito */
     background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('img/portada.jpeg');
     background-size: cover;
     background-position: center;
@@ -270,18 +272,18 @@ header {
 .frase-final span { color: #e50914; }
 
 /* ===================== */
-/* mi titulo general reutilizable */
+/* este es mi titulo que uso en todas las paginas, lo hice reutilizable para no repetir */
 /* ===================== */
 .encabezado { margin-bottom: 40px; border-left: 6px solid #e50914; padding-left: 18px; }
 .encabezado h1 { font-family: 'Anton'; font-size: 44px; }
 .encabezado p { color: #ff0a16; font-family: 'Bebas Neue'; letter-spacing: 2px; }
 
 /* ===================== */
-/* mi pagina de personajes - MAS CLARITA */
+/* esta es mi pagina de personajes, aqui van los 10 */
 /* ===================== */
 .pagina-personajes {
     padding: 80px 5%;
-    /* antes 0.82 muy oscuro, ahora 0.50 para que se alcance a ver el fondo */
+    /* antes estaba muy oscuro en 0.82, ahora lo deje en 0.50 para que se alcance a ver el fondo */
     background-image: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)), url('img/portada.jpeg');
     background-size: cover;
     background-position: center;
@@ -298,7 +300,7 @@ header {
 .datos h2 { font-size: 13px; font-family: 'Bebas Neue'; letter-spacing: 1px; }
 
 /* ===================== */
-/* mi pagina de episodios - MAS CLARITA */
+/* esta es mi pagina de episodios */
 /* ===================== */
 .pagina-episodios {
     padding: 80px 5%;
@@ -317,7 +319,7 @@ header {
 .datos-ep span { color: #e50914; font-family: 'Anton'; }
 
 /* ===================== */
-/* mi galeria - MAS CLARITA */
+/* esta es mi galeria, yo la hice con 4 fotos */
 /* ===================== */
 .pagina-galeria {
     padding: 80px 5%;
@@ -333,7 +335,7 @@ header {
 .foto-g img { width: 100%; height: 100%; object-fit: cover; }
 
 /* ===================== */
-/* mi pagina sobre la serie - MAS CLARITA */
+/* esta es mi pagina de sobre la serie, donde cuento de que va */
 /* ===================== */
 .pagina-sobre {
     padding: 80px 5%;
@@ -360,7 +362,7 @@ header {
 }
 
 /* ===================== */
-/* mi boton flotante para volver al inicio */
+/* este es mi boton flotante que hice para volver al inicio, el que dice INICIO abajo a la derecha */
 /* ===================== */
 .volver-inicio {
     position: fixed;
@@ -371,14 +373,14 @@ header {
     text-decoration: none;
     font-family: 'Bebas Neue';
     font-size: 22px;
-    z-index: 999;
+    z-index: 999; /* lo puse bien alto para que siempre quede encima */
     border: 3px solid #5a0000;
     clip-path: polygon(8% 0, 100% 0, 92% 100%, 0% 100%);
     box-shadow: 0 6px 0 #3a0000, 0 0 35px rgba(229, 9, 20, 0.9);
 }
 
 /* ===================== */
-/* MI FOOTER - TAMBIEN MAS CLARITO */
+/* ESTE ES MI FOOTER, LO HICE NUEVO PORQUE ME FALTABA Y YA LO ARREGLE  */
 /* ===================== */
 .footer {
   background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('img/portada.jpeg');
@@ -389,7 +391,7 @@ header {
   padding: 60px 5% 30px;
   text-align: center;
   position: relative;
-  box-shadow: 0 0 40px rgba(229,9,20,0.4) inset;
+  box-shadow: 0 0 40px rgba(229,9,20,0.4) inset; /* le puse sombra roja por dentro para que brille */
 }
 .footer h2 { font-family: 'Anton'; font-size: 38px; transform: rotate(-1.5deg); text-shadow: 3px 3px 0 #000, 0 0 15px #e50914; }
 .footer h2 span { color: #e50914; }
@@ -398,4 +400,4 @@ header {
 .footer-links a { color: #999; text-decoration: none; font-family: 'Bebas Neue'; font-size: 16px; }
 .footer-links a:hover { color: #e50914; }
 .copy { margin-top: 30px; font-size: 11px; color: #555; border-top: 1px solid #222; padding-top: 15px; }
-.footer-sangre { position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: #b80000; }
+.footer-sangre { position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: #b80000; } /* esta es la barrita de sangre de arriba del footer */
